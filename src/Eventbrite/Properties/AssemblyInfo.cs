@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Eventbrite")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple API wrapper for Evenbrite")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Xormis")]
 [assembly: AssemblyProduct("Eventbrite")]
