@@ -15,11 +15,11 @@ namespace Eventbrite.Requests
       get { return HttpMethod.Get; }
     }
 
-    public Uri RequestUri
+    public string RequestUri
     {
       get
       {
-        return new Uri("/v3/users/me/");
+        return "/v3/users/me/";
       }
     }
   }

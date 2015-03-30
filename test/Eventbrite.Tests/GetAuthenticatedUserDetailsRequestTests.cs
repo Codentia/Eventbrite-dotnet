@@ -14,7 +14,7 @@ namespace Eventbrite.Tests
 
     public async Task Should()
     {
-      var api = new EventbriteApi("");
+      var api = new EventbriteApi();
       var response = await api.Execute(new GetUserDetailsByIdRequest(1), CancellationToken.None);
     }
   }

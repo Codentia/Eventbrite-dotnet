@@ -9,6 +9,6 @@ namespace Eventbrite.Requests
   public interface IRequest<TResponse>
   {
     HttpMethod HttpMethod { get; }
-    Uri RequestUri { get; }
+    string RequestUri { get; }
   }
 }

@@ -19,9 +19,9 @@ namespace Eventbrite.Requests
 
     public HttpMethod HttpMethod { get { return HttpMethod.Get; }}
 
-    public Uri RequestUri
+    public string RequestUri
     {
-      get { return new Uri(string.Format("/v3/users/{0}/", UserId)); }
+      get { return string.Format("/v3/users/{0}/", UserId); }
     }
   }
 }

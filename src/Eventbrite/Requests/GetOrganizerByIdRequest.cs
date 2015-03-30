@@ -17,6 +17,6 @@ namespace Eventbrite.Requests
 
     public long OrganizerId { get; private set; }
     public HttpMethod HttpMethod { get { return HttpMethod.Get; } }
-    public Uri RequestUri { get { return new Uri(string.Format("/v3/organizers/{0}", OrganizerId)); } }
+    public string RequestUri { get { return string.Format("/v3/organizers/{0}", OrganizerId); } }
   }
 }
