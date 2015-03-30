@@ -13,7 +13,7 @@ namespace Eventbrite.Entities
     /// The user's id
     /// </summary>
     [JsonProperty(PropertyName = "id")]
-    public int Id { get; set; }
+    public long Id { get; set; }
     /// <summary>
     /// The user’s name. Use this in preference to first_name/last_name if possible for forward compatibility with non-Western names.
     /// </summary>

@@ -8,14 +8,14 @@ using Eventbrite.Entities;
 
 namespace Eventbrite.Requests
 {
-  public class GetUserDetailsByUserIdRequest : IRequest<User>
+  public class GetUserDetailsByIdRequest : IRequest<User>
   {
-    public GetUserDetailsByUserIdRequest(int userId)
+    public GetUserDetailsByIdRequest(long userId)
     {
       UserId = userId;
     }
 
-    public int UserId { get; private set; }
+    public long UserId { get; private set; }
 
     public HttpMethod HttpMethod { get { return HttpMethod.Get; }}
 

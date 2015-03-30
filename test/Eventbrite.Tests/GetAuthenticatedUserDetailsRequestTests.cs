@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Eventbrite.Requests;
 
@@ -14,7 +15,7 @@ namespace Eventbrite.Tests
     public async Task Should()
     {
       var api = new EventbriteApi("");
-      var response = await api.Execute(new GetUserDetailsByUserIdRequest(1));
+      var response = await api.Execute(new GetUserDetailsByIdRequest(1), CancellationToken.None);
     }
   }
 }
