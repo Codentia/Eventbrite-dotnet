@@ -13,21 +13,16 @@ namespace Eventbrite.Tests
   public class GetOrganizerByIdRequestTests
   {
     [Fact]
-    public async Task Should()
+    public async Task Should_return_correct_organisation()
     {
+      long id = 7794529429;
       var api = new EventbriteApi();
-      api.SetOAuthToken("");
-      var request = new GetOrganizerByIdRequest(7794529429);
+      api.SetOAuthToken("BKKRDKVUVRC5WG4HAVLT");
+      var request = new GetOrganizerByIdRequest(id);
       var response = await api.Execute(request, CancellationToken.None);
+
+      Assert.Equal(id, response.Id);
     }
 
-    [Fact]
-    public void lol()
-    {
-      var test = "lol/"
-        .AppendPathSegment("lol/test?lol=t&test=test")
-        .SetQueryParam("new", "newdata");
-
-    }
   }
 }

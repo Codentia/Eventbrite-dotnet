@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Eventbrite.Requests;
+using Flurl;
 using Newtonsoft.Json;
 
 namespace Eventbrite
@@ -14,7 +15,8 @@ namespace Eventbrite
   public class EventbriteApi
   {
     private readonly HttpClient httpClient;
-    private string authToken;
+    private string oAuthToken;
+
     public EventbriteApi()
     {
       httpClient = new HttpClient();
@@ -23,8 +25,11 @@ namespace Eventbrite
 
     public async Task<TResponse> Execute<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken)
     {
-      var httpRequestMessage = new HttpRequestMessage(request.HttpMethod, request.RequestUri);
-      httpRequestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
+      // setting auth token in query param as setting it on the header throws auth error.
+      // TODO: investigate.
+      var url = request.RequestUri.SetQueryParam("token", oAuthToken);
+
+      var httpRequestMessage = new HttpRequestMessage(request.HttpMethod, url);
       var response = await httpClient.SendAsync(httpRequestMessage, cancellationToken);
       var content = await response.Content.ReadAsStringAsync();
       return JsonConvert.DeserializeObject<TResponse>(content);
@@ -32,7 +37,8 @@ namespace Eventbrite
 
     public void SetOAuthToken(string token)
     {
-      authToken = token;
+      oAuthToken = token;
+      httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     }
   }
 }
