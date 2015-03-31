@@ -63,6 +63,7 @@
     <Compile Include="GetAccessTokenRequestTests.cs" />
     <Compile Include="GetAuthenticatedUserDetailsRequestTests.cs" />
     <Compile Include="GetOrganizerByIdRequestTests.cs" />
+    <Compile Include="GetUserOwnedEventsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

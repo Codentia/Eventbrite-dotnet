@@ -38,9 +38,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AccessToken.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\HybridDate.cs" />
+    <Compile Include="Entities\HybridString.cs" />
     <Compile Include="Entities\Organizer.cs" />
+    <Compile Include="Entities\TicketClasses.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserEmail.cs" />
+    <Compile Include="Entities\Venue.cs" />
     <Compile Include="EventbriteApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\GetAccessTokenRequest.cs" />
