@@ -12,10 +12,5 @@ namespace Eventbrite.Tests
   public class GetAuthenticatedUserDetailsRequestTests
   {
 
-    public async Task Should()
-    {
-      var api = new EventbriteApi();
-      var response = await api.Execute(new GetUserDetailsByIdRequest(1), CancellationToken.None);
-    }
   }
 }

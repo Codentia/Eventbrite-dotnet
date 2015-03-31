@@ -53,7 +53,10 @@
     <Compile Include="Requests\GetAuthenticatedUserDetailsRequest.cs" />
     <Compile Include="Requests\GetOrganizerByIdRequest.cs" />
     <Compile Include="Requests\GetUserDetailsByIdRequest.cs" />
+    <Compile Include="Requests\GetUserOwnedEventsRequest.cs" />
     <Compile Include="Requests\IRequest.cs" />
+    <Compile Include="Responses\OwnedEventsResponse.cs" />
+    <Compile Include="Responses\Pagination.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
