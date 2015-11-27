@@ -36,16 +36,16 @@ namespace Eventbrite.Entities
     public HybridDate End { get; set; }
 
     [JsonProperty(PropertyName = "created")]
-    public DateTime Created { get; set; }
+    public DateTime? Created { get; set; }
 
     [JsonProperty(PropertyName = "changed")]
-    public DateTime Changed { get; set; }
+    public DateTime? Changed { get; set; }
 
     [JsonProperty(PropertyName = "timezone")]
     public string Timezone { get; set; }
 
     [JsonProperty(PropertyName = "capacity")]
-    public int Capacity { get; set; }
+    public int? Capacity { get; set; }
 
     [JsonProperty(PropertyName = "categories")]
     public object[] Categories { get; set; }
