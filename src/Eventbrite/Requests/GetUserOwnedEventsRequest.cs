@@ -13,11 +13,15 @@ namespace Eventbrite.Requests
     public GetUserOwnedEventsRequest(long id)
     {
       Id = id;
+      this.Status = "all";
+      this.Expansions = new List<string>();
     }
 
     public long Id { get; private set; }
 
     public string Status { get; set; }
+
+    public List<string> Expansions { get; set; }
 
     public HttpMethod HttpMethod
     {
@@ -31,9 +35,33 @@ namespace Eventbrite.Requests
     {
       get 
       {
-          string status = string.IsNullOrEmpty(this.Status) ? string.Empty : string.Format("?status={0}", this.Status);
+          StringBuilder queryString = new StringBuilder();
+          queryString.Append("?");
 
-          return string.Format("/v3/users/{0}/owned_events/{1}", Id, status); 
+          if(!string.IsNullOrEmpty(this.Status))
+          {
+              queryString.AppendFormat("status={0}", this.Status.ToLower());
+          }
+
+          if (this.Expansions.Count() > 0)
+          {
+              if (queryString.Length > 1)
+              {
+                  queryString.Append("&");
+              }
+
+              queryString.Append("expand=");
+
+              foreach (string expansion in this.Expansions)
+              {
+                  queryString.Append(expansion.ToLower());
+                  queryString.Append(",");
+              }
+
+              queryString.Remove(queryString.Length - 1, 1);
+          }
+
+          return string.Format("/v3/users/{0}/owned_events/{1}", Id, queryString.ToString()); 
       }
     }
   }

@@ -40,5 +40,7 @@ namespace Eventbrite.Tests
 
         // TODO: Proper testing here
     }
+
+      // TODO: Write test that adding status & adding expansions generates the correct URL
   }
 }
