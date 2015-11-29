@@ -25,5 +25,20 @@ namespace Eventbrite.Tests
 
       Assert.NotEmpty(response.Events);
     }
+
+    [Fact]
+    public async Task filter_by_status()
+    {
+        long id = 89307119205;
+        var api = new EventbriteApi();
+        api.SetOAuthToken("BKKRDKVUVRC5WG4HAVLT");
+        var request = new GetUserOwnedEventsRequest(id);
+        request.Status = "live";
+        var response = await api.Execute(request, CancellationToken.None);
+
+        Assert.NotEmpty(response.Events);
+
+        // TODO: Proper testing here
+    }
   }
 }

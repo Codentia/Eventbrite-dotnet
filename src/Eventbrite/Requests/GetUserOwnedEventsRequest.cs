@@ -17,6 +17,8 @@ namespace Eventbrite.Requests
 
     public long Id { get; private set; }
 
+    public string Status { get; set; }
+
     public HttpMethod HttpMethod
     {
       get
@@ -27,7 +29,12 @@ namespace Eventbrite.Requests
 
     public string RequestUri
     {
-      get { return string.Format("/v3/users/{0}/owned_events/", Id); }
+      get 
+      {
+          string status = string.IsNullOrEmpty(this.Status) ? string.Empty : string.Format("?status={0}", this.Status);
+
+          return string.Format("/v3/users/{0}/owned_events/{1}", Id, status); 
+      }
     }
   }
 }
