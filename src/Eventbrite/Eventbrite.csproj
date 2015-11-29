@@ -42,6 +42,7 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\HybridDate.cs" />
     <Compile Include="Entities\HybridString.cs" />
+    <Compile Include="Entities\EventImage.cs" />
     <Compile Include="Entities\Organizer.cs" />
     <Compile Include="Entities\TicketClasses.cs" />
     <Compile Include="Entities\User.cs" />

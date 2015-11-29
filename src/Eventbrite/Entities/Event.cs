@@ -52,5 +52,8 @@ namespace Eventbrite.Entities
 
     [JsonProperty(PropertyName = "status")]
     public string Status { get; set; }
+
+    [JsonProperty(PropertyName = "logo")]
+    public EventImage Logo { get; set; }
   }
 }
